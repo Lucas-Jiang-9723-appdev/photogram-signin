@@ -24,10 +24,31 @@
           <a href="/photos"> photos </a>
         </li>
         <li>
-          <a href="/user_sign_up"> sign up </a>
+          <%=session.fetch(:user_id)%>
+        </li>
+        <li>
+          <a href="/user_sign_up"> sign up! </a>
+        </li>
+        <li>
+          <a href="/user_sign_in"> sign in! </a>
+        </li>
+        <li>
+          <a href="/user_sign_out"> sign out </a>
         </li>
       </ul>
     </nav>
+    
+    <%if notice.present? %>
+      <div style = "border: thin purple solid;">
+        <%= notice %>
+      </div>
+    <%end%>
+    <%if alert.present? %>
+      <div style = "border: thin red solid;">
+        <%= alert%>
+      </div>
+    <%end%>
+
     <%= yield %>
   </body>
 </html>
